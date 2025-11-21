@@ -1,0 +1,22 @@
+uuid: 8b5957d2-4c11-46dd-8444-96ec8c90d573
+langcode: en
+status: true
+dependencies:
+  theme:
+    - esokami
+_core:
+  default_config_hash: saWWtQWTvMm3koKx0E0DNN8s9tSwf3ggRdg0wyekv4U
+id: esokami_primary_local_tasks
+theme: esokami
+region: content
+weight: -5
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

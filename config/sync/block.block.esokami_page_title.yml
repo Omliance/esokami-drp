@@ -1,0 +1,20 @@
+uuid: a3d25cca-6605-411a-ab38-824ee82cf190
+langcode: en
+status: true
+dependencies:
+  theme:
+    - esokami
+_core:
+  default_config_hash: uUDpFsp3wsKvaJgdYAYxMK7DG_cFS6uISEu6NrzTWL0
+id: esokami_page_title
+theme: esokami
+region: content
+weight: -7
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

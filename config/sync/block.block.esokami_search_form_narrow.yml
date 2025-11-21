@@ -1,0 +1,23 @@
+uuid: 97957a1b-acfa-4b03-870c-6b49237fa429
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - esokami
+_core:
+  default_config_hash: pjFdsD92PuLr2OyEkhydF-uHhneVLss7RmmMHd6WaSw
+id: esokami_search_form_narrow
+theme: esokami
+region: sidebar_first
+weight: -7
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (narrow)'
+  label_display: '0'
+  provider: search
+  page_id: null
+visibility: {  }

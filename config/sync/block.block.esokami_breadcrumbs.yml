@@ -1,0 +1,22 @@
+uuid: d7cea493-828b-4149-8737-f4e5d8388a25
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - esokami
+_core:
+  default_config_hash: N7ee5l26WUnRzd-x7m7yA2V0OMNoi74RcqlZqdzrphE
+id: esokami_breadcrumbs
+theme: esokami
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: 9651b2f2-29cf-45b9-b60f-4ff621037c80
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - esokami
+_core:
+  default_config_hash: '-LFB2hv1wEJQdkLvD31TmjBXXU8_jg4efj6O2rolEAk'
+id: esokami_content
+theme: esokami
+region: content
+weight: -3
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

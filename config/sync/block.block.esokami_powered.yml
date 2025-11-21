@@ -1,0 +1,22 @@
+uuid: 9aa0e4b1-3d68-41a8-b0f8-3d05df230f8c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - esokami
+_core:
+  default_config_hash: 3MqlvBgUKgTiQ9AwJaE8SrP73JtNhppvbWbab0hqPY0
+id: esokami_powered
+theme: esokami
+region: footer_fifth
+weight: -7
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

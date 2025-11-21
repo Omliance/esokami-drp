@@ -1,0 +1,22 @@
+uuid: b5572619-1a63-41aa-baee-3689928d46d9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - esokami
+_core:
+  default_config_hash: cuHfig6Q6T5-gcEcsuAyReRwJmgpuDlF6oPDe8VwG2s
+id: esokami_messages
+theme: esokami
+region: highlighted
+weight: -6
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

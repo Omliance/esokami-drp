@@ -1,0 +1,23 @@
+uuid: fc865ac1-6d68-49a6-bb71-c427e71aae80
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - esokami
+_core:
+  default_config_hash: 7f-QYg4n45BpAZEoet1X9YBXoFzrO_WDymouT_Z-irc
+id: esokami_search_form_wide
+theme: esokami
+region: top_header_form
+weight: -7
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: null
+visibility: {  }

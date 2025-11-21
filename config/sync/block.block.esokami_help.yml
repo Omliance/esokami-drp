@@ -1,0 +1,22 @@
+uuid: 79d4156a-ffe8-483f-8a8c-77562ef3295e
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - esokami
+_core:
+  default_config_hash: S_KIYtsEWqabEoUefzXKCmtwVyx-H7tjH7OZqV_has0
+id: esokami_help
+theme: esokami
+region: highlighted
+weight: -2
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

@@ -1,0 +1,27 @@
+uuid: 4794c42d-13e7-4da2-ba0e-34b6888ec19c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - esokami
+_core:
+  default_config_hash: fLHQgu-yFNFr3oZmHFY89b6o1ZQFa2mloH5JXsl7oeE
+id: esokami_main_menu
+theme: esokami
+region: primary_menu
+weight: -6
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 2
+  expand_all_items: true
+visibility: {  }

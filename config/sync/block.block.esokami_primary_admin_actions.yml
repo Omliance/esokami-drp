@@ -1,0 +1,20 @@
+uuid: ced3ef5c-ed9f-4a43-9c04-781dcee49553
+langcode: en
+status: true
+dependencies:
+  theme:
+    - esokami
+_core:
+  default_config_hash: E4ViUc1KLmkfKVL1vEpv_jpCsjLYg-uDZa9PS8Ni1hw
+id: esokami_primary_admin_actions
+theme: esokami
+region: content
+weight: -6
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }
