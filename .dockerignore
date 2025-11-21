@@ -1,0 +1,99 @@
+# .dockerignore pour build Docker de production
+# Exclut les fichiers inutiles pour réduire le contexte de build
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# DDEV (développement local)
+.ddev/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Documentation
+*.md
+!CHANGELOG.md
+LICENSE
+docs/
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+package.json
+package-lock.json
+yarn.lock
+
+# Code Drupal (sera monté depuis l'hôte, pas copié dans l'image)
+web/
+vendor/
+composer.json
+composer.lock
+
+# Fichiers Drupal
+web/sites/*/files/
+web/sites/*/private/
+web/sites/development.services.yml
+web/sites/example.settings.local.php
+web/sites/example.sites.php
+
+# Configuration Drupal
+config/
+
+# Fichiers privés
+private/
+
+# Backups
+backups/
+*.sql
+*.sql.gz
+*.tar.gz
+
+# Migration
+migration/
+
+# Docker Compose
+docker-compose*.yml
+!docker-compose.prod.yml
+
+# Environnement
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Tests
+tests/
+phpunit.xml
+.phpunit.result.cache
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+Jenkinsfile
+
+# Cache
+.cache/
+tmp/
+temp/
+
+# Miscellaneous
+*.tar
+*.zip
+*.rar

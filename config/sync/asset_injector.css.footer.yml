@@ -1,0 +1,97 @@
+uuid: 9c00ee3a-cac8-4a98-bdf4-c0f36eaac658
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+id: footer
+label: footer
+code: |-
+  :root {
+      /* Variables footer */
+      --footer-text: #ffffff;
+      --footer-link: #4a9eff;
+      --footer-padding-lg: 60px;
+      --footer-padding-md: 40px;
+      --footer-padding-sm: 30px;
+      --footer-margin-top: 80px;
+      --footer-gap: 40px;
+      --footer-font-size: 12px;
+      --footer-line-height: 1.7;
+      --transition: all 0.3s ease;
+  }
+
+  .footer {
+      padding: 60px 20px 30px;
+      margin-top: 80px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12px;
+      line-height: 1.7;
+  }
+
+  .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+  }
+
+  .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+  }
+
+  .footer-column h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.4;
+  }
+
+  .footer-column h4 {
+      font-size: 14px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #ffffff;
+      position: relative;
+      padding-bottom: 10px;
+      line-height: 1.5;
+  }
+
+  .footer-column h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 3px;
+      background: #4a9eff;
+      border-radius: 2px;
+  }
+
+  .footer-column p {
+      margin-bottom: 10px;
+      opacity: 0.9;
+      color: #ffffff;
+      font-size: 1rem;
+      line-height: var(--sp1);
+  }
+
+  .footer-column a {
+      color: #4a9eff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+  }
+
+  .footer-column a:hover {
+      color: #ffffff
+media: all
+preprocess: false
+conditions:
+  current_theme:
+    id: current_theme
+    negate: false
+    theme: olivero
+contexts: {  }
+conditions_require_all: true

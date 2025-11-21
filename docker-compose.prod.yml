@@ -1,0 +1,196 @@
+# Docker Compose pour Drupal 11 en production
+# Approche : Code Drupal monté depuis l'hôte (après composer install)
+# Image Docker contient uniquement PHP-FPM et extensions
+
+services:
+  # Caddy : Reverse proxy avec HTTPS automatique (Let's Encrypt)
+  caddy:
+    image: caddy:2-alpine
+    container_name: esokami-caddy
+    restart: unless-stopped
+    environment:
+      DOMAIN_NAME: ${DOMAIN_NAME}
+      LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"  # HTTP/3
+    volumes:
+      # Configuration Caddy
+      - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      # Code Drupal (lecture seule)
+      - ./web:/var/www/html/web:ro
+      # Fichiers publics (lecture seule pour Caddy)
+      - drupal_files:/var/www/html/web/sites/default/files:ro
+      # Données Caddy (certificats SSL)
+      - caddy_data:/data
+      - caddy_config:/config
+      - caddy_logs:/var/log/caddy
+    depends_on:
+      php:
+        condition: service_healthy
+    networks:
+      - frontend
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # PHP-FPM : Serveur d'application Drupal
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: esokami-drupal:latest
+    container_name: esokami-php
+    restart: unless-stopped
+    environment:
+      # Base de données
+      DB_HOST: ${DB_HOST:-mariadb}
+      DB_PORT: ${DB_PORT:-3306}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      # Redis
+      REDIS_HOST: ${REDIS_HOST:-redis}
+      REDIS_PORT: ${REDIS_PORT:-6379}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      # Drupal
+      DRUPAL_HASH_SALT: ${DRUPAL_HASH_SALT}
+      TRUSTED_HOST_PATTERNS: ${TRUSTED_HOST_PATTERNS}
+      CONFIG_SYNC_DIRECTORY: ${CONFIG_SYNC_DIRECTORY:-../config/sync}
+      FILE_PRIVATE_PATH: ${FILE_PRIVATE_PATH:-/var/www/private}
+      FILE_TEMP_PATH: ${FILE_TEMP_PATH:-/tmp}
+      # PHP
+      PHP_MEMORY_LIMIT: ${PHP_MEMORY_LIMIT:-256M}
+      PHP_MAX_EXECUTION_TIME: ${PHP_MAX_EXECUTION_TIME:-300}
+      PHP_UPLOAD_MAX_FILESIZE: ${PHP_UPLOAD_MAX_FILESIZE:-64M}
+      PHP_POST_MAX_SIZE: ${PHP_POST_MAX_SIZE:-64M}
+    volumes:
+      # Code Drupal
+      - ./web:/var/www/html/web
+      - ./vendor:/var/www/html/vendor
+      - ./config:/var/www/html/config
+      - ./composer.json:/var/www/html/composer.json
+      - ./composer.lock:/var/www/html/composer.lock
+      # Fichiers écriture
+      - drupal_files:/var/www/html/web/sites/default/files
+      - drupal_private:/var/www/private
+      - php_tmp:/tmp
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - frontend
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "/usr/local/bin/healthcheck"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 40s
+
+  # MariaDB : Base de données MySQL
+  mariadb:
+    image: mariadb:10.11
+    container_name: esokami-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_INITDB_SKIP_TZINFO: 1
+    volumes:
+      # Données persistantes
+      - mariadb_data:/var/lib/mysql
+      # Configuration custom
+      - ./docker/mariadb/custom.cnf:/etc/mysql/conf.d/custom.cnf:ro
+      # Backups
+      - ./backups:/backups
+    networks:
+      - backend
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --transaction-isolation=READ-COMMITTED
+      - --max-allowed-packet=256M
+      - --innodb-buffer-pool-size=512M
+      - --innodb-log-file-size=128M
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # Redis : Cache en mémoire
+  redis:
+    image: redis:7-alpine
+    container_name: esokami-redis
+    restart: unless-stopped
+    command: redis-server --requirepass ${REDIS_PASSWORD} --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+
+  # Backup : Service de sauvegarde (à exécuter manuellement ou via cron)
+  backup:
+    image: esokami-drupal:latest
+    container_name: esokami-backup
+    restart: "no"
+    profiles:
+      - backup
+    environment:
+      DB_HOST: mariadb
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - ./backups:/backups
+      - drupal_files:/var/www/html/web/sites/default/files:ro
+      - drupal_private:/var/www/private:ro
+      - ./scripts/backup.sh:/backup.sh:ro
+    depends_on:
+      - mariadb
+    networks:
+      - backend
+    entrypoint: ["/backup.sh"]
+
+# Réseaux
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+    internal: true
+
+# Volumes persistants
+volumes:
+  mariadb_data:
+    driver: local
+  drupal_files:
+    driver: local
+  drupal_private:
+    driver: local
+  redis_data:
+    driver: local
+  caddy_data:
+    driver: local
+  caddy_config:
+    driver: local
+  caddy_logs:
+    driver: local
+  php_tmp:
+    driver: local

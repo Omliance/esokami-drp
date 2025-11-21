@@ -1,0 +1,62 @@
+# Caddyfile pour Drupal 11 en production
+# HTTPS automatique via Let's Encrypt
+
+# Configuration globale
+{
+    # Email pour Let's Encrypt
+    email {$LETSENCRYPT_EMAIL}
+
+    # Serveur ACME production
+    acme_ca https://acme-v02.api.letsencrypt.org/directory
+}
+
+# Redirection www vers non-www
+www.{$DOMAIN_NAME} {
+    redir https://{$DOMAIN_NAME}{uri} permanent
+}
+
+# Site principal
+{$DOMAIN_NAME} {
+    # Configuration PHP-FPM
+    root * /var/www/html/web
+
+    # Logs
+    log {
+        output file /var/log/caddy/access.log
+        format json
+    }
+
+    # Page de santé
+    handle /health {
+        respond "OK" 200
+    }
+
+    # PHP-FPM
+    php_fastcgi php:9000 {
+        trusted_proxies private_ranges
+        resolve_root_symlink
+        index index.php
+    }
+
+    # Fichiers statiques
+    file_server
+
+    # Gestion des erreurs
+    handle_errors {
+        rewrite * /{err.status_code}.html
+        file_server
+    }
+
+    # En-têtes de sécurité
+    header {
+        X-Frame-Options "SAMEORIGIN"
+        X-Content-Type-Options "nosniff"
+        X-XSS-Protection "1; mode=block"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Permissions-Policy "geolocation=(), microphone=(), camera=()"
+        -Server
+    }
+
+    # Compression
+    encode gzip zstd
+}
