@@ -92,7 +92,7 @@ function js() {
 // Static Server + watching scss/html files
 function serve() {
   browserSync.init({
-    proxy: 'https://www.drupal.org',
+    proxy: 'https://esokami-drp.ddev.site/',
   });
 
   gulp

@@ -117,6 +117,45 @@ ddev exec -d /var/www/html/web/core ../../vendor/bin/phpunit path/to/TestClass.p
 ddev exec vendor/bin/phpcs --standard=web/core/phpcs.xml.dist web/modules/custom
 ```
 
+### SASS/SCSS Workflow (Esokami Theme)
+
+**Important:** SASS/Gulp s'exécute sur l'hôte (votre machine locale), pas dans DDEV.
+
+**Chemin du thème :**
+```bash
+cd web/themes/custom/esokami
+```
+
+**Commandes essentielles :**
+```bash
+# Installation initiale (une seule fois)
+npm install
+
+# Compiler le CSS (build manuel)
+gulp styles
+
+# Mode watch (recompilation automatique + browser-sync)
+gulp
+
+# Vider le cache Drupal si les styles ne s'appliquent pas
+ddev drush cr
+```
+
+**Fichiers SCSS à éditer :**
+- `scss/variables.scss` - Variables Bootstrap (couleurs, espacements, etc.)
+- `scss/typography.scss` - Configuration typographique
+- `scss/style.scss` - Styles custom du thème
+- `scss/mixins.scss` - Mixins réutilisables
+
+**Fichiers générés (ne pas éditer) :**
+- `css/style.css` - CSS compilé (chargé automatiquement par Drupal)
+- `css/bootstrap.css` - Bootstrap compilé
+
+**Architecture :**
+- Les fichiers `.scss` sont les sources (commités dans Git)
+- Les fichiers `.css` sont générés (gitignorés, recréés à la compilation)
+- Toujours éditer les `.scss`, jamais les `.css`
+
 ## Project Structure
 
 ### Key Directories
