@@ -1,0 +1,22 @@
+uuid: ba685bc8-9e8c-414e-ab8d-a4c636e1c36b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.article
+id: node.article.promote
+field_name: promote
+entity_type: node
+bundle: article
+label: "Promu en page d'accueil"
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean
