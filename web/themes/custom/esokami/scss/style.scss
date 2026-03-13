@@ -1,6 +1,6 @@
 /*
-Theme Name: Bootstrap 4 Sass
-Description: Bootstrap 4 with Sass
+Theme Name: Esokami Bootstrap 5 Sass
+Description: Esokami "Terre & Lumiere" theme built on Bootstrap 5
 */
 
 // import files
@@ -13,25 +13,34 @@ body {
     background: $body-bg;
 }
 
-
-/* COLORS
+/* LINKS
 --------------------------------------------------*/
 
 a {
-    color: $accent-shade;
+    color: $navy;
+    transition: color 0.25s;
+
+    &:hover {
+        color: $gold;
+    }
 }
 
-.bg-inverse {
-    background: $primary-shade !important;
-}
-
-.site-footer {
-    background: $primary-shade !important;
-}
+/* HEADER / NAV
+--------------------------------------------------*/
 
 .site-name-slogan a {
     text-decoration: none;
 }
+
+/* FOOTER
+--------------------------------------------------*/
+
+.site-footer {
+    background: $navy !important;
+}
+
+/* CARDS
+--------------------------------------------------*/
 
 .card-group img {
     margin: 0;
@@ -40,13 +49,16 @@ a {
 }
 
 .card-group .field--type-image {
-    margin: 0
+    margin: 0;
 }
+
+/* SLICK
+--------------------------------------------------*/
 
 .slick {
     width: 100%;
 }
 
-.slick>div {
+.slick > div {
     margin: 0 15px;
 }
