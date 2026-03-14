@@ -1,0 +1,28 @@
+uuid: 12acff92-45d5-42d4-bb3e-d5fac5e367bd
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:292c6c8d-72f7-4ee7-8b9d-5e9b013d17ed'
+  module:
+    - block_content
+    - system
+  theme:
+    - esokami
+id: homepage_a_propos
+theme: esokami
+region: content
+weight: -14
+provider: null
+plugin: 'block_content:292c6c8d-72f7-4ee7-8b9d-5e9b013d17ed'
+settings:
+  id: 'block_content:292c6c8d-72f7-4ee7-8b9d-5e9b013d17ed'
+  label: 'Homepage — À propos'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

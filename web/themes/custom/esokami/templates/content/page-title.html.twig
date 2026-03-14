@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Esokami theme override for page titles.
+ *
+ * Wraps the page title in the legal-hero markup (navy background,
+ * sacred geometry SVG, gold accent) on all non-front pages.
+ *
+ * Available variables:
+ * - title_attributes: HTML attributes for the page title element.
+ * - title_prefix: Additional output populated by modules.
+ * - title: The page title, for use in the actual content.
+ * - title_suffix: Additional output populated by modules.
+ *
+ * @ingroup themeable
+ */
+#}
+{{ title_prefix }}
+{% if title %}
+  <section class="ek-legal-hero">
+    <div class="ek-legal-hero__geo" aria-hidden="true">
+      <svg viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="300" cy="300" r="290" stroke="currentColor" stroke-width="0.5"/>
+        <circle cx="300" cy="300" r="200" stroke="currentColor" stroke-width="0.5"/>
+        <circle cx="300" cy="300" r="110" stroke="currentColor" stroke-width="0.5"/>
+        <circle cx="300" cy="100" r="200" stroke="currentColor" stroke-width="0.4"/>
+        <circle cx="473" cy="200" r="200" stroke="currentColor" stroke-width="0.4"/>
+        <circle cx="473" cy="400" r="200" stroke="currentColor" stroke-width="0.4"/>
+        <circle cx="300" cy="500" r="200" stroke="currentColor" stroke-width="0.4"/>
+        <circle cx="127" cy="400" r="200" stroke="currentColor" stroke-width="0.4"/>
+        <circle cx="127" cy="200" r="200" stroke="currentColor" stroke-width="0.4"/>
+      </svg>
+    </div>
+    <div class="ek-legal-hero__content">
+      <h1{{ title_attributes.addClass('ek-legal-hero__title') }}>{{ title }}</h1>
+      <div class="ek-legal-hero__accent" aria-hidden="true"></div>
+    </div>
+  </section>
+{% endif %}
+{{ title_suffix }}

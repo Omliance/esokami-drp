@@ -1,0 +1,28 @@
+uuid: 7b898020-eb08-49a6-9794-318a9365df6e
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:672e1595-4469-405a-96c5-c6e4f28b7592'
+  module:
+    - block_content
+    - system
+  theme:
+    - esokami
+id: homepage_cta_final
+theme: esokami
+region: content
+weight: -12
+provider: null
+plugin: 'block_content:672e1595-4469-405a-96c5-c6e4f28b7592'
+settings:
+  id: 'block_content:672e1595-4469-405a-96c5-c6e4f28b7592'
+  label: 'Homepage — CTA Final'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

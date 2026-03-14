@@ -1,0 +1,28 @@
+uuid: d8081b10-5aa2-42e9-ad7c-b8e6deb17ec8
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:42b3d4a6-fdf8-4118-9e22-f59df5632c0f'
+  module:
+    - block_content
+    - system
+  theme:
+    - esokami
+id: homepage_approche
+theme: esokami
+region: content
+weight: -15
+provider: null
+plugin: 'block_content:42b3d4a6-fdf8-4118-9e22-f59df5632c0f'
+settings:
+  id: 'block_content:42b3d4a6-fdf8-4118-9e22-f59df5632c0f'
+  label: 'Homepage — Approche'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

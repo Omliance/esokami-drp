@@ -1,0 +1,28 @@
+uuid: c2bcc484-3a02-4eb7-9ac4-23911e2d1680
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:85babc23-44e4-4e28-a0b0-d9892d017313'
+  module:
+    - block_content
+    - system
+  theme:
+    - esokami
+id: homepage_offres
+theme: esokami
+region: content
+weight: -17
+provider: null
+plugin: 'block_content:85babc23-44e4-4e28-a0b0-d9892d017313'
+settings:
+  id: 'block_content:85babc23-44e4-4e28-a0b0-d9892d017313'
+  label: 'Homepage — Offres'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

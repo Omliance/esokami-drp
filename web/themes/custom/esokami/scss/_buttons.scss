@@ -1,0 +1,109 @@
+/* BUTTONS — Terre & Lumiere variants (ek- prefix) */
+
+// Base shared styles — only custom properties not in Bootstrap .btn
+.ek-btn-primary,
+.ek-btn-secondary,
+.ek-btn-gold,
+.ek-btn-outline-light {
+  display: inline-block;
+  padding: 13px 30px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: $radius;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+  text-decoration: none;
+  line-height: 1;
+}
+
+// Primary — navy CTA
+.ek-btn-primary {
+  background: $navy;
+  color: $cream-light;
+  border-color: $navy;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: $gold;
+    transition: width 0.4s ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.88;
+    color: $cream-light;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+// Secondary — outline on light bg
+.ek-btn-secondary {
+  background: transparent;
+  color: $earth;
+  border-color: $border-structural;
+
+  &:hover,
+  &:focus-visible {
+    color: $gold;
+    border-color: $gold;
+  }
+}
+
+// Gold — accent
+.ek-btn-gold {
+  background: $gold;
+  color: #1A0E05;
+  border-color: $gold;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.86;
+    color: #1A0E05;
+  }
+}
+
+// Outline light — on dark bg
+.ek-btn-outline-light {
+  background: transparent;
+  color: rgba(240, 232, 222, 0.75);
+  border-color: rgba(240, 232, 222, 0.22);
+
+  &:hover,
+  &:focus-visible {
+    color: $gold;
+    border-color: $gold;
+  }
+}
+
+// Nav CTA
+.ek-nav-cta {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1px solid $gold;
+  color: $gold;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: $radius;
+  transition: all 0.3s;
+
+  &:hover,
+  &:focus-visible {
+    background: $gold;
+    color: $cream;
+  }
+}

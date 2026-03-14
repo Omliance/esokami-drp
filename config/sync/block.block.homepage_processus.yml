@@ -1,0 +1,28 @@
+uuid: 4e5ce066-fc1c-4072-b93f-b306cd891e88
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:bfe7c393-9230-440c-8994-db80c2e3eaa7'
+  module:
+    - block_content
+    - system
+  theme:
+    - esokami
+id: homepage_processus
+theme: esokami
+region: content
+weight: -16
+provider: null
+plugin: 'block_content:bfe7c393-9230-440c-8994-db80c2e3eaa7'
+settings:
+  id: 'block_content:bfe7c393-9230-440c-8994-db80c2e3eaa7'
+  label: 'Homepage — Processus'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

@@ -10,55 +10,22 @@ Description: Esokami "Terre & Lumiere" theme built on Bootstrap 5
 -------------------------------------------------*/
 
 body {
-    background: $body-bg;
+  background: $body-bg;
 }
 
-/* LINKS
---------------------------------------------------*/
+#main.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
 
-a {
+/* Scope Esokami styles to #page only (excludes Gin toolbar & highlighted) */
+#page {
+  a {
     color: $navy;
     transition: color 0.25s;
 
     &:hover {
-        color: $gold;
+      color: $gold;
     }
-}
-
-/* HEADER / NAV
---------------------------------------------------*/
-
-.site-name-slogan a {
-    text-decoration: none;
-}
-
-/* FOOTER
---------------------------------------------------*/
-
-.site-footer {
-    background: $navy !important;
-}
-
-/* CARDS
---------------------------------------------------*/
-
-.card-group img {
-    margin: 0;
-    width: 100%;
-    height: auto;
-}
-
-.card-group .field--type-image {
-    margin: 0;
-}
-
-/* SLICK
---------------------------------------------------*/
-
-.slick {
-    width: 100%;
-}
-
-.slick > div {
-    margin: 0 15px;
+  }
 }

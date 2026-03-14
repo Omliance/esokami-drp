@@ -1,7 +1,9 @@
 uuid: a3d25cca-6605-411a-ab38-824ee82cf190
-langcode: en
+langcode: fr
 status: true
 dependencies:
+  module:
+    - system
   theme:
     - esokami
 _core:
@@ -14,7 +16,11 @@ provider: null
 plugin: page_title_block
 settings:
   id: page_title_block
-  label: 'Page title'
+  label: 'Titre de la page'
   label_display: '0'
   provider: core
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'

@@ -1,0 +1,28 @@
+uuid: ca916099-50a2-4a9b-a084-675ea530dedb
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:7472ec54-2941-4801-8c0f-a1212038a814'
+  module:
+    - block_content
+    - system
+  theme:
+    - esokami
+id: homepage_hero
+theme: esokami
+region: content
+weight: -20
+provider: null
+plugin: 'block_content:7472ec54-2941-4801-8c0f-a1212038a814'
+settings:
+  id: 'block_content:7472ec54-2941-4801-8c0f-a1212038a814'
+  label: 'Homepage — Hero'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

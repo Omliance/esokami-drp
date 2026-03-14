@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * Minimal field template for the body field on block_content entities.
+ *
+ * Outputs raw field content without wrapper markup, so that HTML sections
+ * (hero, section-alt, etc.) render directly without extra divs.
+ */
+#}
+{% for item in items %}
+  {{ item.content }}
+{% endfor %}

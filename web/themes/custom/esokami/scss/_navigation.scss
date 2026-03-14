@@ -1,0 +1,66 @@
+/* NAVIGATION — Terre & Lumiere header */
+
+.navbar {
+  background: $cream;
+  border-bottom: 1px solid $border-terracotta;
+  padding: 0 5%;
+  height: 70px;
+  transition: box-shadow 0.3s;
+}
+
+// Shadow on scroll (body.scrolled set by base.js)
+body.scrolled .navbar {
+  box-shadow: 0 2px 20px rgba(26, 38, 64, 0.08);
+}
+
+// Logo / site name
+.site-name-slogan a {
+  font-family: $headings-font-family;
+  font-size: 22px;
+  font-weight: 400;
+  color: $navy;
+  text-decoration: none;
+
+  &:hover {
+    color: $navy;
+  }
+}
+
+// Nav links
+.navbar-nav .nav-link {
+  font-family: $font-family-sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $earth-light;
+  transition: color 0.25s;
+
+  &:hover,
+  &:focus-visible {
+    color: $gold;
+  }
+
+  &.active,
+  &.is-active {
+    color: $navy;
+  }
+}
+
+// Dropdown
+.navbar .dropdown-menu {
+  background: $cream;
+  border: 1px solid $border-structural;
+  border-radius: $radius;
+  box-shadow: $shadow-rest;
+
+  .dropdown-item {
+    font-size: 12px;
+    color: $earth;
+
+    &:hover {
+      background: $cream-dark;
+      color: $gold;
+    }
+  }
+}

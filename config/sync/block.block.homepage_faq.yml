@@ -1,0 +1,28 @@
+uuid: ea9470ef-4243-43f3-8a7d-f3c56ba92fc9
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:b6e10988-f26c-49a2-a43f-4b7d10d82756'
+  module:
+    - block_content
+    - system
+  theme:
+    - esokami
+id: homepage_faq
+theme: esokami
+region: content
+weight: -13
+provider: null
+plugin: 'block_content:b6e10988-f26c-49a2-a43f-4b7d10d82756'
+settings:
+  id: 'block_content:b6e10988-f26c-49a2-a43f-4b7d10d82756'
+  label: 'Homepage — FAQ'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

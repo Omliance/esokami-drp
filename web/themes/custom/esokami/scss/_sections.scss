@@ -1,0 +1,112 @@
+/* SECTIONS — generic section styling (ek- prefix) */
+
+.ek-section {
+  padding: clamp(64px, 9vw, 104px) 5%;
+}
+
+.ek-section-alt {
+  padding: clamp(64px, 9vw, 104px) 5%;
+  background: $cream-dark;
+}
+
+.ek-section-dark {
+  padding: clamp(64px, 9vw, 104px) 5%;
+  background: $navy;
+
+  h2, h3, h4 {
+    color: $cream-light;
+  }
+
+  .ek-sec-header p,
+  .ek-sec-sub {
+    color: rgba(240, 232, 222, 0.5);
+  }
+}
+
+// Container
+.ek-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+// Section header — centered
+.ek-sec-header {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto $space-md;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin-bottom: 0;
+    font-weight: 300;
+  }
+
+  &.ek-left {
+    text-align: left;
+    margin-left: 0;
+
+    .ek-section-label {
+      justify-content: flex-start;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+// Section label — centered with gold lines
+.ek-section-label {
+  font-weight: 300;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: $gold;
+  }
+}
+
+// Section subtitle
+.ek-sec-sub {
+  font-size: 16px;
+  color: $earth-light;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+// Page header (standard pages)
+.ek-page-header {
+  background: $navy;
+  text-align: center;
+  padding: clamp(48px, 8vw, 80px) 5%;
+
+  h1 {
+    color: $cream-light;
+    margin-bottom: 16px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 2px;
+    background: $gold;
+    margin: 0 auto;
+  }
+}

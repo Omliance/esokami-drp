@@ -1,0 +1,28 @@
+uuid: ea31a9ef-3326-443d-a3da-1ba230821c91
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:65986586-f5ab-4dd7-9c5b-7845cefb7acd'
+  module:
+    - block_content
+    - system
+  theme:
+    - esokami
+id: homepage_identification
+theme: esokami
+region: content
+weight: -19
+provider: null
+plugin: 'block_content:65986586-f5ab-4dd7-9c5b-7845cefb7acd'
+settings:
+  id: 'block_content:65986586-f5ab-4dd7-9c5b-7845cefb7acd'
+  label: 'Homepage — Identification'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

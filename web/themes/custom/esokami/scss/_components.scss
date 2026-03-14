@@ -1,0 +1,544 @@
+/* COMPONENTS — hero, cards, offers, process, about, FAQ, CTA (ek- prefix) */
+
+// ------ Hero section ------
+.ek-hero {
+  padding: clamp(72px, 10vw, 120px) 5% clamp(64px, 8vw, 100px);
+  position: relative;
+  overflow: hidden;
+  background: $cream;
+}
+
+.ek-hero__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.ek-hero__title {
+  font-family: $headings-font-family;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 400;
+  line-height: 1.08;
+  color: $navy;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+
+  em {
+    font-style: italic;
+    color: $gold;
+  }
+}
+
+.ek-hero__sub {
+  font-size: 17px;
+  font-weight: 300;
+  color: $earth-light;
+  line-height: 1.72;
+  margin-bottom: 40px;
+}
+
+.ek-hero__accent {
+  width: 64px;
+  height: 1px;
+  background: $gold;
+  opacity: 0.5;
+  margin-bottom: 48px;
+}
+
+.ek-hero__ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  @media (min-width: 480px) {
+    flex-direction: row;
+  }
+}
+
+.ek-hero__visual {
+  position: relative;
+  z-index: 2;
+}
+
+.ek-hero__placeholder {
+  min-height: 320px;
+  aspect-ratio: 5/6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $border-terracotta;
+  border-radius: $radius;
+  background: $cream-dark;
+
+  svg {
+    color: $gold;
+    opacity: 0.35;
+  }
+}
+
+// ------ Cards (pain points) ------
+.ek-card {
+  border: 1px solid $border-terracotta;
+  padding: $space-md 26px;
+  border-radius: $radius;
+  background: $cream;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+
+  &:hover {
+    border-color: $gold;
+    box-shadow: $shadow-hover;
+    transform: translateY(-3px);
+  }
+}
+
+.ek-card__icon {
+  color: $gold;
+  margin-bottom: $space-sm;
+}
+
+.ek-card__title {
+  font-family: $headings-font-family;
+  font-size: 20px;
+  color: $navy;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.ek-card__text {
+  font-size: 14px;
+  color: $earth-light;
+  line-height: 1.65;
+}
+
+// ------ Offer cards ------
+.ek-offer-card {
+  border: 1px solid $border-terracotta;
+  padding: 36px 28px;
+  border-radius: $radius;
+  background: $cream;
+  transition: box-shadow 0.35s, transform 0.35s;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: $gold;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  &:hover::before { transform: scaleX(1); }
+  &:hover { box-shadow: $shadow-hover; transform: translateY(-3px); }
+}
+
+.ek-offer-card--featured {
+  background: $navy;
+  border-color: $navy;
+
+  .ek-offer__title,
+  .ek-offer__price { color: $cream-light; }
+  .ek-offer__desc { color: rgba(240, 232, 222, 0.62); }
+  .ek-offer__feat { border-color: rgba(240, 232, 222, 0.1); color: rgba(240, 232, 222, 0.65); }
+}
+
+.ek-offer__label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $gold;
+  margin-bottom: 18px;
+  font-weight: 300;
+}
+
+.ek-offer__title {
+  font-family: $headings-font-family;
+  font-size: 28px;
+  font-weight: 400;
+  color: $navy;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.ek-offer__price {
+  font-family: $headings-font-family;
+  font-size: 40px;
+  font-weight: 300;
+  color: $navy;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+
+  sup {
+    display: inline-block;
+    font-size: 0.3em;
+    line-height: 1;
+    vertical-align: top;
+    margin-top: 0.52em;
+    color: $gold;
+    font-style: normal;
+  }
+}
+
+.ek-offer__desc {
+  font-size: 14px;
+  color: $earth-light;
+  margin-bottom: 26px;
+  line-height: 1.65;
+}
+
+.ek-offer__feats {
+  list-style: none;
+  margin: 0 0 34px;
+  padding: 0;
+}
+
+.ek-offer__feat {
+  font-size: 13px;
+  color: $earth-light;
+  padding: 10px 0;
+  border-bottom: 1px solid $border-terracotta;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 4px;
+    background: $gold;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+}
+
+// ------ Process steps (dark bg) ------
+.ek-process-grid {
+  --bs-gutter-x: 2px;
+  --bs-gutter-y: 2px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.ek-step {
+  padding: 40px 28px;
+  text-align: center;
+  border: 1px solid rgba(240, 232, 222, 0.06);
+  transition: background 0.3s;
+
+  &:hover {
+    background: rgba(240, 232, 222, 0.04);
+  }
+}
+
+.ek-step__num {
+  font-family: $headings-font-family;
+  font-size: 72px;
+  font-weight: 300;
+  color: $gold;
+  opacity: 0.28;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.ek-step__title {
+  font-family: $headings-font-family;
+  font-size: 22px;
+  color: $cream-light;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.ek-step__text {
+  font-size: 13px;
+  color: rgba(240, 232, 222, 0.5);
+  line-height: 1.65;
+}
+
+// ------ Approche ------
+.ek-approche__body {
+  max-width: 640px;
+  margin: 0 auto $space-md;
+}
+
+.ek-approche__text {
+  font-size: 15px;
+  color: $earth-light;
+  line-height: 1.75;
+  margin-bottom: $space-sm;
+}
+
+.ek-approche__quote {
+  font-family: $headings-font-family;
+  font-size: 20px;
+  font-style: italic;
+  color: $gold;
+  text-align: center;
+  margin: $space-md 0;
+  line-height: 1.4;
+}
+
+// ------ About section ------
+.ek-about__inner {
+  --bs-gutter-x: 60px;
+  --bs-gutter-y: 32px;
+}
+
+.ek-about__img {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border: 1px solid $border-terracotta;
+  border-radius: $radius;
+  background: $cream-dark;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.82);
+    display: block;
+  }
+}
+
+.ek-about__placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    color: $gold;
+    opacity: 0.4;
+  }
+}
+
+.ek-about__text {
+  font-size: 15px;
+  color: $earth-light;
+  line-height: 1.75;
+  margin-bottom: 22px;
+}
+
+.ek-about__sig {
+  font-family: $headings-font-family;
+  font-size: 24px;
+  font-style: italic;
+  color: $navy;
+  font-weight: 300;
+}
+
+// ------ Disclaimer ------
+.ek-disclaimer {
+  padding: 22px 26px;
+  border-left: 2px solid $gold;
+  background: $gold-wash;
+  border-radius: 0 $radius $radius 0;
+
+  p {
+    font-size: 14px;
+    font-style: italic;
+    color: $earth-light;
+    line-height: 1.65;
+    margin-bottom: 0;
+  }
+
+  &--centered {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Blockquotes share disclaimer style
+blockquote {
+  padding: 22px 26px;
+  border-left: 2px solid $gold;
+  background: $gold-wash;
+  border-radius: 0 $radius $radius 0;
+  font-style: italic;
+  color: $earth-light;
+  margin: $space-md 0;
+}
+
+// ------ FAQ accordion ------
+.ek-faq {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.ek-faq__item {
+  border-bottom: 1px solid $border-structural;
+}
+
+.ek-faq__q {
+  background: none;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  text-align: left;
+  padding: 22px 30px;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: $headings-font-family;
+  font-size: 20px;
+  color: $navy;
+  font-weight: 400;
+  line-height: 1.3;
+  transition: color 0.2s;
+  user-select: none;
+
+  &:hover { color: $gold; }
+  &:focus-visible { outline: 1px solid $gold; outline-offset: 2px; }
+}
+
+.ek-faq__icon {
+  flex-shrink: 0;
+  color: $gold;
+  font-size: 22px;
+  font-weight: 300;
+  transition: transform 0.3s;
+}
+
+.ek-faq__item.is-open .ek-faq__icon {
+  transform: rotate(45deg);
+}
+
+.ek-faq__a {
+  font-size: 15px;
+  color: $earth-light;
+  line-height: 1.7;
+  padding: 0 30px 22px;
+  display: none;
+}
+
+.ek-faq__item.is-open .ek-faq__a {
+  display: block;
+}
+
+// ------ CTA final (dark bg) ------
+.ek-cta-final {
+  background: $navy;
+  padding: clamp(80px, 10vw, 120px) 5%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ek-cta__geo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  aspect-ratio: 1;
+  opacity: 0.04;
+  pointer-events: none;
+  color: $gold;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.ek-cta__title {
+  font-family: $headings-font-family;
+  font-size: clamp(32px, 5vw, 50px);
+  color: $cream-light;
+  font-weight: 400;
+  margin-bottom: 18px;
+  line-height: 1.15;
+  position: relative;
+
+  em {
+    color: $gold;
+    font-style: italic;
+  }
+}
+
+.ek-cta__sub {
+  font-size: 16px;
+  color: rgba(240, 232, 222, 0.55);
+  margin-bottom: 48px;
+  font-weight: 300;
+  position: relative;
+}
+
+.ek-cta__btns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+
+  @media (max-width: 575.98px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.ek-cta__contact {
+  display: block;
+  margin-top: $space-md;
+  font-size: 14px;
+  color: rgba(240, 232, 222, 0.45);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.25s;
+
+  &:hover { color: $gold; }
+}
+
+// ------ Geometric separator ------
+.ek-geo-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 0;
+
+  svg {
+    width: 28px;
+    height: 28px;
+    color: $gold;
+    opacity: 0.35;
+  }
+}
+
+// ------ Content lists with gold bullets ------
+.node__content,
+.field--type-text-long,
+.text-formatted {
+  ul:not(.nav):not(.navbar-nav):not(.list-unstyled) {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 6px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: $gold;
+      }
+    }
+  }
+}
+
