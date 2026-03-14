@@ -30,3 +30,22 @@ function esokami_form_system_theme_settings_alter(&$form, FormStateInterface $fo
     'bg-transparent' => t('Transparent'),
   );
 }
+
+/**
+ * Implements hook_preprocess_breadcrumb().
+ */
+function esokami_preprocess_breadcrumb(&$variables) {
+  // Skip on homepage.
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    return;
+  }
+
+  // Add current page title as last breadcrumb item (non-clickable).
+  $route_match = \Drupal::routeMatch();
+  $title = \Drupal::service('title_resolver')->getTitle(\Drupal::request(), $route_match->getRouteObject());
+  if ($title) {
+    $variables['breadcrumb'][] = [
+      'text' => (string) $title,
+    ];
+  }
+}
