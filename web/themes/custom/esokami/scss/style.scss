@@ -28,4 +28,14 @@ body {
       color: $gold;
     }
   }
+
+  .ek-section-dark a {
+    color: $cream-light;
+    text-decoration-color: $cream-light;
+
+    &:hover {
+      color: $gold;
+      text-decoration-color: $gold;
+    }
+  }
 }

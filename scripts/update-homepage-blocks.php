@@ -24,7 +24,7 @@ $blocks = [
 
       <p class="ek-hero__sub">Des objets symboliques uniques — gravés, purifiés, consacrés — et un accompagnement personnalisé pour traverser les moments de changement avec clarté et intention.</p>
 
-      <div class="ek-hero__accent" aria-hidden="true"></div>
+      <div class="ek-accent--hero" aria-hidden="true"></div>
 
       <div class="ek-hero__ctas">
         <a href="#offres" class="ek-btn-primary">Découvrir les formules</a>
@@ -50,12 +50,12 @@ HTML,
   // 2. IDENTIFICATION
   'Homepage — Identification' => <<<'HTML'
 <section class="ek-section-alt" id="identification" aria-labelledby="identification-title">
-  <div class="ek-container">
+  <div class="container-xl">
 
-    <div class="ek-sec-header ek-reveal">
+    <div class="ek-section-header ek-reveal">
       <p class="ek-section-label">Vous vous reconnaissez ?</p>
       <h2 id="identification-title">Ces situations vous parlent-elles ?</h2>
-      <p class="ek-sec-sub">Aucune exigence de croyance. Seulement un désir sincère de changement.</p>
+      <p class="ek-section-sub">Aucune exigence de croyance. Seulement un désir sincère de changement.</p>
     </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4 ek-reveal-group">
@@ -101,33 +101,21 @@ HTML,
 </section>
 HTML,
 
-  // 3. GEO DIVIDER
-  'Homepage — Geo Divider' => <<<'HTML'
-<div class="ek-geo-divider" aria-hidden="true">
-  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="0.75"></circle>
-    <circle cx="16" cy="16" r="7" stroke="currentColor" stroke-width="0.75"></circle>
-    <line x1="1" y1="16" x2="31" y2="16" stroke="currentColor" stroke-width="0.75"></line>
-    <line x1="16" y1="1" x2="16" y2="31" stroke="currentColor" stroke-width="0.75"></line>
-  </svg>
-</div>
-HTML,
-
-  // 4. OFFRES
+  // 3. OFFRES
   'Homepage — Offres' => <<<'HTML'
 <section class="ek-section" id="offres" aria-labelledby="offres-title">
-  <div class="ek-container">
+  <div class="container-xl">
 
-    <div class="ek-sec-header ek-reveal">
+    <div class="ek-section-header ek-reveal">
       <p class="ek-section-label">Les formules</p>
       <h2 id="offres-title">Trois formules, une même intention</h2>
-      <p class="ek-sec-sub">Choisissez le niveau d'accompagnement qui correspond à votre besoin et à votre situation.</p>
+      <p class="ek-section-sub">Choisissez le niveau d'accompagnement qui correspond à votre besoin et à votre situation.</p>
     </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4 ek-reveal-group">
 
       <div class="col">
-        <article class="ek-offer-card">
+        <article class="ek-offer">
           <p class="ek-offer__label">Objet de collection</p>
           <h3 class="ek-offer__title">Étincelle</h3>
           <p class="ek-offer__price"><sup>€</sup>29</p>
@@ -143,7 +131,7 @@ HTML,
       </div>
 
       <div class="col">
-        <article class="ek-offer-card ek-offer-card--featured">
+        <article class="ek-offer--featured">
           <p class="ek-offer__label">Création unique</p>
           <h3 class="ek-offer__title">Flamme</h3>
           <p class="ek-offer__price"><sup>€</sup>69</p>
@@ -160,7 +148,7 @@ HTML,
       </div>
 
       <div class="col">
-        <article class="ek-offer-card">
+        <article class="ek-offer">
           <p class="ek-offer__label">Accompagnement complet</p>
           <h3 class="ek-offer__title">Brasier</h3>
           <p class="ek-offer__price"><sup>€</sup>249</p>
@@ -178,7 +166,7 @@ HTML,
 
     </div>
 
-    <div class="ek-disclaimer" style="max-width:640px;margin:48px auto 0;" role="note">
+    <div class="ek-disclaimer--centered mt-5" role="note">
       <p>Mon accompagnement ne remplace en aucun cas un suivi médical. Il vient en complément des traitements conventionnels pour une approche holistique de votre bien-être.</p>
     </div>
 
@@ -189,19 +177,19 @@ HTML,
   // 5. PROCESSUS
   'Homepage — Processus' => <<<'HTML'
 <section class="ek-section-dark" id="processus" aria-labelledby="processus-title">
-  <div class="ek-container">
+  <div class="container-xl">
 
-    <div class="ek-sec-header ek-reveal">
+    <div class="ek-section-header ek-reveal">
       <p class="ek-section-label">Comment ça marche ?</p>
       <h2 id="processus-title">Un processus en six étapes</h2>
-      <p class="ek-sec-sub">De la première prise de contact à la livraison de votre objet.</p>
+      <p class="ek-section-sub">De la première prise de contact à la livraison de votre objet.</p>
     </div>
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 ek-process-grid ek-reveal-group">
 
       <div class="col">
         <div class="ek-step">
-          <div class="ek-step__num" aria-hidden="true">01</div>
+          <div class="ek-num--step" aria-hidden="true">01</div>
           <h3 class="ek-step__title">Prise de contact</h3>
           <p class="ek-step__text">Vous partagez votre intention, vos aspirations et le contexte de votre démarche via un formulaire simple.</p>
         </div>
@@ -209,7 +197,7 @@ HTML,
 
       <div class="col">
         <div class="ek-step">
-          <div class="ek-step__num" aria-hidden="true">02</div>
+          <div class="ek-num--step" aria-hidden="true">02</div>
           <h3 class="ek-step__title">Échange initial</h3>
           <p class="ek-step__text">Un entretien en ligne pour affiner l'intention, comprendre ce que vous traversez et définir la forme de l'objet.</p>
         </div>
@@ -217,7 +205,7 @@ HTML,
 
       <div class="col">
         <div class="ek-step">
-          <div class="ek-step__num" aria-hidden="true">03</div>
+          <div class="ek-num--step" aria-hidden="true">03</div>
           <h3 class="ek-step__title">Design &amp; création</h3>
           <p class="ek-step__text">Je crée le motif unique de votre talisman — ou vous choisissez un modèle de la collection. Vous validez avant la gravure.</p>
         </div>
@@ -225,7 +213,7 @@ HTML,
 
       <div class="col">
         <div class="ek-step">
-          <div class="ek-step__num" aria-hidden="true">04</div>
+          <div class="ek-num--step" aria-hidden="true">04</div>
           <h3 class="ek-step__title">Gravure &amp; finition</h3>
           <p class="ek-step__text">La gravure laser est réalisée sur bois ou acier inoxydable, suivie d'une colorisation soignée à la main pour révéler le motif.</p>
         </div>
@@ -233,7 +221,7 @@ HTML,
 
       <div class="col">
         <div class="ek-step">
-          <div class="ek-step__num" aria-hidden="true">05</div>
+          <div class="ek-num--step" aria-hidden="true">05</div>
           <h3 class="ek-step__title">Purification &amp; consécration</h3>
           <p class="ek-step__text">L'objet est purifié pour le nettoyer de toute énergie résiduelle, puis consacré : une activation qui lui donne sa mission — porter et rayonner votre intention.</p>
         </div>
@@ -241,7 +229,7 @@ HTML,
 
       <div class="col">
         <div class="ek-step">
-          <div class="ek-step__num" aria-hidden="true">06</div>
+          <div class="ek-num--step" aria-hidden="true">06</div>
           <h3 class="ek-step__title">Livraison &amp; suivi</h3>
           <p class="ek-step__text">L'objet vous est expédié avec un guide d'utilisation complet. Pour la formule Brasier, l'accompagnement personnalisé commence dès réception.</p>
         </div>
@@ -256,12 +244,12 @@ HTML,
   // 6. APPROCHE
   'Homepage — Approche' => <<<'HTML'
 <section class="ek-section-alt" id="approche" aria-labelledby="approche-title">
-  <div class="ek-container">
+  <div class="container-xl">
 
-    <div class="ek-sec-header ek-reveal">
+    <div class="ek-section-header ek-reveal">
       <p class="ek-section-label">Mon approche</p>
       <h2 id="approche-title">Le subtil au service du concret</h2>
-      <p class="ek-sec-sub">Ni jargon obscur, ni croyance imposée. Une pratique artisanale et intentionnelle, accessible à tous.</p>
+      <p class="ek-section-sub">Ni jargon obscur, ni croyance imposée. Une pratique artisanale et intentionnelle, accessible à tous.</p>
     </div>
 
     <div class="ek-approche__body ek-reveal">
@@ -270,7 +258,7 @@ HTML,
       <p class="ek-approche__quote"><em>Audentes Fortuna Iuvat</em> — À l'audace, la Fortune sourit.</p>
     </div>
 
-    <div class="ek-disclaimer ek-reveal" style="max-width:640px;margin:0 auto;" role="note" aria-label="Mention légale santé">
+    <div class="ek-disclaimer--centered ek-reveal" role="note" aria-label="Mention légale santé">
       <p>Mon accompagnement ne remplace en aucun cas un suivi médical. Il vient en complément des traitements conventionnels pour une approche holistique de votre bien-être.</p>
     </div>
 
@@ -281,7 +269,7 @@ HTML,
   // 7. À PROPOS
   'Homepage — A propos' => <<<'HTML'
 <section class="ek-section" id="qui-suis-je" aria-labelledby="about-title">
-  <div class="ek-container">
+  <div class="container-xl">
     <div class="row align-items-center ek-about__inner">
 
       <div class="col-12 col-md-5 ek-about__img ek-reveal">
@@ -293,7 +281,7 @@ HTML,
       </div>
 
       <div class="col-12 col-md-7 ek-reveal">
-        <div class="ek-sec-header ek-left">
+        <div class="ek-section-header ek-section-header--left">
           <p class="ek-section-label">Qui suis-je ?</p>
           <h2 id="about-title">Artisan de l'intention, praticien énergétique</h2>
         </div>
@@ -312,9 +300,9 @@ HTML,
   // 8. FAQ
   'Homepage — FAQ' => <<<'HTML'
 <section class="ek-section-alt" id="faq" aria-labelledby="faq-title">
-  <div class="ek-container">
+  <div class="container-xl">
 
-    <div class="ek-sec-header ek-reveal">
+    <div class="ek-section-header ek-reveal">
       <p class="ek-section-label">Questions fréquentes</p>
       <h2 id="faq-title">Ce que vous souhaitez savoir</h2>
     </div>
@@ -408,23 +396,9 @@ HTML,
 
   // 9. CTA FINAL
   'Homepage — CTA Final' => <<<'HTML'
-<section class="ek-cta-final" id="cta-final" aria-labelledby="cta-final-title">
+<section class="ek-cta" id="cta-final" aria-labelledby="cta-final-title">
 
-  <div class="ek-cta__geo" aria-hidden="true">
-    <svg viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="300" cy="300" r="290" stroke="currentColor" stroke-width="0.5"></circle>
-      <circle cx="300" cy="300" r="200" stroke="currentColor" stroke-width="0.5"></circle>
-      <circle cx="300" cy="300" r="110" stroke="currentColor" stroke-width="0.5"></circle>
-      <circle cx="300" cy="100" r="200" stroke="currentColor" stroke-width="0.4"></circle>
-      <circle cx="473" cy="200" r="200" stroke="currentColor" stroke-width="0.4"></circle>
-      <circle cx="473" cy="400" r="200" stroke="currentColor" stroke-width="0.4"></circle>
-      <circle cx="300" cy="500" r="200" stroke="currentColor" stroke-width="0.4"></circle>
-      <circle cx="127" cy="400" r="200" stroke="currentColor" stroke-width="0.4"></circle>
-      <circle cx="127" cy="200" r="200" stroke="currentColor" stroke-width="0.4"></circle>
-    </svg>
-  </div>
-
-  <div class="ek-container">
+  <div class="container-xl">
     <h2 class="ek-cta__title ek-reveal" id="cta-final-title">Prêt(e) à ancrer<br>vos <em>intentions</em> dans le réel ?</h2>
     <p class="ek-cta__sub ek-reveal">Et si c'était le bon moment ? Choisissez la formule qui vous parle. Tout commence par une intention.</p>
     <div class="ek-cta__btns ek-reveal">

@@ -36,13 +36,7 @@
   margin-bottom: 40px;
 }
 
-.ek-hero__accent {
-  width: 64px;
-  height: 1px;
-  background: $gold;
-  opacity: 0.5;
-  margin-bottom: 48px;
-}
+// .ek-hero__accent → now use .ek-accent--hero (in _utilities.scss)
 
 .ek-hero__ctas {
   display: flex;
@@ -110,7 +104,7 @@
 }
 
 // ------ Offer cards ------
-.ek-offer-card {
+%ek-offer-base {
   border: 1px solid $border-terracotta;
   padding: 36px 28px;
   border-radius: $radius;
@@ -136,7 +130,13 @@
   &:hover { box-shadow: $shadow-hover; transform: translateY(-3px); }
 }
 
-.ek-offer-card--featured {
+.ek-offer {
+  @extend %ek-offer-base;
+}
+
+// Standalone modifier — featured (dark bg)
+.ek-offer--featured {
+  @extend %ek-offer-base;
   background: $navy;
   border-color: $navy;
 
@@ -226,8 +226,8 @@
 }
 
 .ek-step {
-  padding: 40px 28px;
-  text-align: center;
+  padding: 2.5rem 1.75rem;
+  text-align: left;
   border: 1px solid rgba(240, 232, 222, 0.06);
   transition: background 0.3s;
 
@@ -236,15 +236,7 @@
   }
 }
 
-.ek-step__num {
-  font-family: $headings-font-family;
-  font-size: 72px;
-  font-weight: 300;
-  color: $gold;
-  opacity: 0.28;
-  line-height: 1;
-  margin-bottom: 14px;
-}
+// .ek-step__num → now use .ek-num--step (in _utilities.scss)
 
 .ek-step__title {
   font-family: $headings-font-family;
@@ -335,7 +327,7 @@
 }
 
 // ------ Disclaimer ------
-.ek-disclaimer {
+%ek-disclaimer-base {
   padding: 22px 26px;
   border-left: 2px solid $gold;
   background: $gold-wash;
@@ -348,12 +340,18 @@
     line-height: 1.65;
     margin-bottom: 0;
   }
+}
 
-  &--centered {
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.ek-disclaimer {
+  @extend %ek-disclaimer-base;
+}
+
+// Standalone modifier — centered with max-width
+.ek-disclaimer--centered {
+  @extend %ek-disclaimer-base;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 // Blockquotes share disclaimer style
@@ -427,29 +425,12 @@ blockquote {
 }
 
 // ------ CTA final (dark bg) ------
-.ek-cta-final {
+.ek-cta {
   background: $navy;
   padding: clamp(80px, 10vw, 120px) 5%;
   text-align: center;
   position: relative;
   overflow: hidden;
-}
-
-.ek-cta__geo {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  aspect-ratio: 1;
-  opacity: 0.04;
-  pointer-events: none;
-  color: $gold;
-
-  svg {
-    width: 100%;
-    height: 100%;
-  }
 }
 
 .ek-cta__title {
@@ -498,21 +479,6 @@ blockquote {
   transition: color 0.25s;
 
   &:hover { color: $gold; }
-}
-
-// ------ Geometric separator ------
-.ek-geo-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 36px 0;
-
-  svg {
-    width: 28px;
-    height: 28px;
-    color: $gold;
-    opacity: 0.35;
-  }
 }
 
 // ------ Content lists with gold bullets ------

@@ -24,7 +24,7 @@ $fixes = [
 
       <p class="ek-hero__sub">Des objets symboliques uniques — gravés, purifiés, consacrés — et un accompagnement personnalisé pour traverser les moments de changement avec clarté et intention.</p>
 
-      <div class="ek-hero__accent" aria-hidden="true"></div>
+      <div class="ek-accent--hero" aria-hidden="true"></div>
 
       <div class="ek-hero__ctas">
         <a href="#offres" class="ek-btn-primary">Découvrir les formules</a>
@@ -50,18 +50,18 @@ HTML,
   // 4. OFFRES — remove inline style on disclaimer
   'Homepage — Offres' => <<<'HTML'
 <section class="ek-section" id="offres" aria-labelledby="offres-title">
-  <div class="ek-container">
+  <div class="container-xl">
 
-    <div class="ek-sec-header ek-reveal">
+    <div class="ek-section-header ek-reveal">
       <p class="ek-section-label">Les formules</p>
       <h2 id="offres-title">Trois formules, une même intention</h2>
-      <p class="ek-sec-sub">Choisissez le niveau d'accompagnement qui correspond à votre besoin et à votre situation.</p>
+      <p class="ek-section-sub">Choisissez le niveau d'accompagnement qui correspond à votre besoin et à votre situation.</p>
     </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4 ek-reveal-group">
 
       <div class="col">
-        <article class="ek-offer-card">
+        <article class="ek-offer">
           <p class="ek-offer__label">Objet de collection</p>
           <h3 class="ek-offer__title">Étincelle</h3>
           <p class="ek-offer__price"><sup>€</sup>29</p>
@@ -77,7 +77,7 @@ HTML,
       </div>
 
       <div class="col">
-        <article class="ek-offer-card ek-offer-card--featured">
+        <article class="ek-offer--featured">
           <p class="ek-offer__label">Création unique</p>
           <h3 class="ek-offer__title">Flamme</h3>
           <p class="ek-offer__price"><sup>€</sup>69</p>
@@ -94,7 +94,7 @@ HTML,
       </div>
 
       <div class="col">
-        <article class="ek-offer-card">
+        <article class="ek-offer">
           <p class="ek-offer__label">Accompagnement complet</p>
           <h3 class="ek-offer__title">Brasier</h3>
           <p class="ek-offer__price"><sup>€</sup>249</p>
@@ -112,7 +112,7 @@ HTML,
 
     </div>
 
-    <div class="ek-disclaimer ek-disclaimer--centered mt-5" role="note">
+    <div class="ek-disclaimer--centered mt-5" role="note">
       <p>Mon accompagnement ne remplace en aucun cas un suivi médical. Il vient en complément des traitements conventionnels pour une approche holistique de votre bien-être.</p>
     </div>
 
@@ -123,12 +123,12 @@ HTML,
   // 6. APPROCHE — remove inline style on disclaimer
   'Homepage — Approche' => <<<'HTML'
 <section class="ek-section-alt" id="approche" aria-labelledby="approche-title">
-  <div class="ek-container">
+  <div class="container-xl">
 
-    <div class="ek-sec-header ek-reveal">
+    <div class="ek-section-header ek-reveal">
       <p class="ek-section-label">Mon approche</p>
       <h2 id="approche-title">Le subtil au service du concret</h2>
-      <p class="ek-sec-sub">Ni jargon obscur, ni croyance imposée. Une pratique artisanale et intentionnelle, accessible à tous.</p>
+      <p class="ek-section-sub">Ni jargon obscur, ni croyance imposée. Une pratique artisanale et intentionnelle, accessible à tous.</p>
     </div>
 
     <div class="ek-approche__body ek-reveal">
@@ -137,7 +137,7 @@ HTML,
       <p class="ek-approche__quote"><em>Audentes Fortuna Iuvat</em> — À l'audace, la Fortune sourit.</p>
     </div>
 
-    <div class="ek-disclaimer ek-disclaimer--centered ek-reveal" role="note" aria-label="Mention légale santé">
+    <div class="ek-disclaimer--centered ek-reveal" role="note" aria-label="Mention légale santé">
       <p>Mon accompagnement ne remplace en aucun cas un suivi médical. Il vient en complément des traitements conventionnels pour une approche holistique de votre bien-être.</p>
     </div>
 
@@ -148,7 +148,7 @@ HTML,
   // 7. À PROPOS — remove var(--ek-gold) inline, remove <br> + inline style on btn
   'Homepage — A propos' => <<<'HTML'
 <section class="ek-section" id="qui-suis-je" aria-labelledby="about-title">
-  <div class="ek-container">
+  <div class="container-xl">
     <div class="row align-items-center ek-about__inner">
 
       <div class="col-12 col-md-5 ek-about__img ek-reveal">
@@ -160,7 +160,7 @@ HTML,
       </div>
 
       <div class="col-12 col-md-7 ek-reveal">
-        <div class="ek-sec-header ek-left">
+        <div class="ek-section-header ek-section-header--left">
           <p class="ek-section-label">Qui suis-je ?</p>
           <h2 id="about-title">Artisan de l'intention, praticien énergétique</h2>
         </div>

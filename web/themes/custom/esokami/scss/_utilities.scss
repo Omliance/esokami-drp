@@ -1,0 +1,108 @@
+/* UTILITIES — global reusable classes (ek- prefix) */
+
+// ------ Label gold uppercase ------
+.ek-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $gold;
+  font-weight: 400;
+  background: $gold-wash;
+}
+
+// Override Bootstrap .table > :not(caption) > * > * specificity
+.table > :not(caption) > * > .ek-label {
+  color: $gold;
+  background-color: $gold-wash;
+  box-shadow: none;
+}
+
+// ------ Decorative number (01, 02…) ------
+%ek-num-base {
+  display: block;
+  font-family: $headings-font-family;
+  font-weight: 300;
+  color: $gold;
+  line-height: 1;
+  user-select: none;
+}
+
+.ek-num {
+  @extend %ek-num-base;
+  font-size: 80px;
+  opacity: 0.12;
+  margin-bottom: 2px;
+}
+
+// Standalone modifier — smaller variant for process steps (dark bg)
+.ek-num--step {
+  @extend %ek-num-base;
+  font-size: 2rem;
+  opacity: 0.60;
+  margin-bottom: 0.75rem;
+}
+
+// ------ Lead paragraph ------
+.ek-lead {
+  font-size: 16px;
+  font-weight: 300;
+  color: $earth-light;
+  line-height: 1.78;
+  margin-bottom: 0;
+}
+
+// ------ Accent line (gold decorative separator) ------
+%ek-accent-base {
+  width: 64px;
+  height: 1px;
+  background: $gold;
+  opacity: 0.5;
+}
+
+.ek-accent {
+  @extend %ek-accent-base;
+  margin: 0 auto 20px;
+}
+
+// Standalone modifier — hero variant, no auto-center, larger bottom margin
+.ek-accent--hero {
+  @extend %ek-accent-base;
+  margin: 0 0 48px;
+}
+
+// ------ Table with themed borders ------
+.ek-table-wrap {
+  overflow-x: auto;
+  margin-top: $space-md;
+  border: 1px solid $border-terracotta;
+  border-radius: $radius;
+}
+
+.ek-table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 14px;
+
+  th {
+    padding: 14px 20px;
+    text-align: left;
+    border-bottom: 1px solid $border-terracotta;
+  }
+
+  td {
+    padding: 13px 20px;
+    color: $earth;
+    line-height: 1.5;
+    border-bottom: 1px solid $border-terracotta;
+    vertical-align: top;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tbody tr:hover {
+    background: $gold-wash;
+  }
+}
