@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentions légales — Esokami</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --tc-bg:           #F8F2E8;
+      --tc-bg-section:   #EDE3D5;
+      --tc-bg-dark:      #1A2640;
+      --tc-navy:         #1A2640;
+      --tc-gold:         #C4962A;
+      --tc-accent:       #B8724F;
+      --tc-text:         #302A24;
+      --tc-text-light:   #705A4A;
+      --tc-text-on-dark: #F0E8DE;
+      --tc-border:       rgba(184,114,79,0.18);
+      --tc-border-str:   rgba(26,38,64,0.12);
+      --tc-gold-subtle:  rgba(196,150,42,0.08);
+      --tc-shadow:       0 2px 24px rgba(26,38,64,0.07);
+      --tc-shadow-h:     0 8px 36px rgba(184,114,79,0.18);
+      --tc-font-heading: 'Fraunces', Georgia, serif;
+      --tc-font-body:    'DM Sans', system-ui, sans-serif;
+      --tc-radius:       4px;
+      --tc-space-sm:     16px;
+      --tc-space-md:     32px;
+      --tc-space-lg:     64px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--tc-bg);
+      color: var(--tc-text);
+      font-family: var(--tc-font-body);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    h1, h2, h3, h4 {
+      font-family: var(--tc-font-heading);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--tc-navy);
+      letter-spacing: -0.01em;
+    }
+    h2 { font-size: clamp(26px, 3.8vw, 40px); margin-bottom: 14px; }
+    h3 { font-size: clamp(18px, 2.4vw, 24px); margin-bottom: 10px; margin-top: var(--tc-space-md); font-weight: 500; }
+    p  { margin-bottom: var(--tc-space-sm); }
+    a  { color: var(--tc-navy); transition: color 0.25s; }
+    a:hover { color: var(--tc-gold); }
+    strong { font-weight: 500; }
+    em { font-style: italic; font-family: var(--tc-font-heading); }
+
+    /* NAV */
+    .site-nav {
+      background: var(--tc-bg);
+      border-bottom: 1px solid var(--tc-border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 70px;
+    }
+    .nav-logo {
+      font-family: var(--tc-font-heading);
+      font-size: 22px; font-weight: 400;
+      color: var(--tc-navy); text-decoration: none;
+    }
+    .nav-logo em { color: var(--tc-gold); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--tc-text-light); text-decoration: none; transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--tc-gold); }
+    .nav-cta {
+      padding: 8px 20px;
+      border: 1px solid var(--tc-gold); color: var(--tc-gold);
+      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; border-radius: var(--tc-radius); transition: all 0.25s;
+    }
+    .nav-cta:hover { background: var(--tc-gold); color: var(--tc-bg); }
+
+    /* SECTIONS */
+    .tc-section      { padding: clamp(64px,9vw,104px) 5%; background: var(--tc-bg); }
+    .tc-section-alt  { padding: clamp(64px,9vw,104px) 5%; background: var(--tc-bg-section); }
+    .tc-section-dark { padding: clamp(64px,9vw,104px) 5%; background: var(--tc-bg-dark); }
+
+    .tc-container    { max-width: 1100px; margin: 0 auto; }
+    .tc-container-sm { max-width: 720px; margin: 0 auto; }
+
+    /* SECTION LABEL */
+    .tc-section-label {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--tc-gold); margin-bottom: 14px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .tc-section-label::before,
+    .tc-section-label::after { content: ''; display: block; width: 20px; height: 1px; background: var(--tc-gold); }
+    .tc-section-label.left { justify-content: flex-start; }
+    .tc-section-label.left::after { display: none; }
+
+    .tc-sec-header { text-align: left; max-width: none; margin-bottom: var(--tc-space-md); }
+    .tc-sec-header h2 { margin-top: 0; }
+
+    /* LEAD */
+    .tc-legal__lead {
+      font-size: 16px; font-weight: 300;
+      color: var(--tc-text-light); line-height: 1.78; margin-bottom: 0;
+    }
+
+    /* NUM */
+    .tc-legal__num {
+      display: block;
+      font-family: var(--tc-font-heading);
+      font-size: 80px; font-weight: 300;
+      color: var(--tc-gold); opacity: 0.12;
+      line-height: 1; margin-bottom: 2px; user-select: none;
+    }
+
+    /* BLOCKQUOTE */
+    blockquote {
+      border-left: 2px solid var(--tc-gold);
+      background: var(--tc-gold-subtle);
+      padding: 20px 24px;
+      border-radius: 0 var(--tc-radius) var(--tc-radius) 0;
+      margin: var(--tc-space-md) 0;
+      font-style: italic; color: var(--tc-text-light);
+      font-size: 14px; line-height: 1.68;
+    }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* ID CARD / TABLE */
+    .tc-legal__id-card {
+      border: 1px solid var(--tc-border); border-radius: var(--tc-radius);
+      overflow: hidden; margin-top: var(--tc-space-md);
+    }
+    .tc-legal__id-row {
+      display: grid; grid-template-columns: 200px 1fr;
+      border-bottom: 1px solid var(--tc-border);
+    }
+    .tc-legal__id-row:last-child { border-bottom: none; }
+    .tc-legal__id-label {
+      padding: 14px 20px;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--tc-gold); font-weight: 400;
+      background: var(--tc-gold-subtle);
+      border-right: 1px solid var(--tc-border);
+      display: flex; align-items: center;
+    }
+    .tc-legal__id-value {
+      padding: 14px 20px; font-size: 14px;
+      color: var(--tc-text); line-height: 1.5;
+    }
+
+    /* HERO */
+    .tc-legal__hero {
+      background: var(--tc-bg-dark);
+      padding: clamp(80px,11vw,132px) 5% clamp(60px,8vw,96px);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .tc-legal__hero-geo {
+      position: absolute; left: 50%; top: 50%;
+      transform: translate(-50%,-50%);
+      width: min(520px,70vw); aspect-ratio: 1;
+      opacity: 0.04; pointer-events: none; color: var(--tc-gold);
+    }
+    .tc-legal__hero-geo svg { width: 100%; height: 100%; }
+    .tc-legal__hero-content { position: relative; z-index: 2; }
+    .tc-legal__eyebrow {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--tc-gold); margin-bottom: 22px;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+    }
+    .tc-legal__eyebrow::before,
+    .tc-legal__eyebrow::after { content: ''; display: block; width: 24px; height: 1px; background: var(--tc-gold); }
+    .tc-legal__title {
+      font-family: var(--tc-font-heading);
+      font-size: clamp(40px,6vw,68px); font-weight: 400;
+      color: var(--tc-text-on-dark); line-height: 1.08;
+      margin-bottom: 26px; letter-spacing: -0.01em;
+    }
+    .tc-legal__title em { color: var(--tc-gold); font-style: italic; }
+    .tc-legal__accent {
+      width: 64px; height: 1px; background: var(--tc-gold); opacity: 0.5;
+      margin: 0 auto 20px;
+    }
+    .tc-legal__date {
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(240,232,222,0.32); font-weight: 300;
+    }
+
+    /* SECTION FINALE */
+    .tc-legal__final { position: relative; overflow: hidden; }
+    .tc-legal__final-geo {
+      position: absolute; left: 50%; top: 50%;
+      transform: translate(-50%,-50%);
+      width: min(480px,60vw); aspect-ratio: 1;
+      opacity: 0.04; pointer-events: none; color: var(--tc-gold);
+    }
+    .tc-legal__final-geo svg { width: 100%; height: 100%; }
+    .tc-legal__final-inner { position: relative; text-align: center; }
+    .tc-legal__final-title {
+      font-family: var(--tc-font-heading);
+      font-size: clamp(30px,4.5vw,52px); font-weight: 400;
+      color: var(--tc-text-on-dark); margin-bottom: 18px; line-height: 1.15;
+    }
+    .tc-legal__final-title em { color: var(--tc-gold); font-style: italic; }
+    .tc-legal__final-sub {
+      font-size: 15px; color: rgba(240,232,222,0.52);
+      margin-bottom: 40px; font-weight: 300;
+      max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.72;
+    }
+    .tc-legal__cnil-note {
+      margin-top: var(--tc-space-md);
+      font-size: 13px; color: rgba(240,232,222,0.3);
+      line-height: 1.65; max-width: 560px; margin-left: auto; margin-right: auto;
+    }
+    .tc-legal__cnil-note strong { color: rgba(240,232,222,0.45); }
+
+    /* BOUTONS */
+    .btn-gold {
+      display: inline-block;
+      padding: 13px 30px; background: var(--tc-gold); color: #1A0E05;
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; border-radius: var(--tc-radius); transition: all 0.25s;
+      font-family: var(--tc-font-body); font-weight: 500;
+    }
+    .btn-gold:hover { opacity: 0.86; color: #1A0E05; }
+    .btn-outline-light {
+      display: inline-block;
+      padding: 13px 30px; background: transparent;
+      color: rgba(240,232,222,0.72);
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; border: 1px solid rgba(240,232,222,0.2);
+      border-radius: var(--tc-radius); transition: all 0.3s;
+      font-family: var(--tc-font-body);
+    }
+    .btn-outline-light:hover { border-color: var(--tc-gold); color: var(--tc-gold); }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--tc-bg-dark);
+      border-top: 1px solid rgba(240,232,222,0.06);
+      padding: 48px 5% 28px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 48px; max-width: 1100px; margin: 0 auto 36px;
+    }
+    .f-logo {
+      font-family: var(--tc-font-heading); font-size: 22px;
+      color: var(--tc-text-on-dark); margin-bottom: 10px;
+    }
+    .f-logo em { color: var(--tc-gold); font-style: italic; }
+    .f-tagline { font-size: 13px; color: rgba(240,232,222,0.35); font-style: italic; margin-bottom: 16px; }
+    .f-disclaimer { font-size: 12px; color: rgba(240,232,222,0.28); line-height: 1.65; font-style: italic; }
+    .f-col-title {
+      font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--tc-gold); margin-bottom: 18px; font-weight: 400;
+      font-family: var(--tc-font-body);
+    }
+    .f-links { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+    .f-links li::before { display: none; }
+    .f-links a { font-size: 13px; color: rgba(240,232,222,0.45); text-decoration: none; transition: color 0.2s; }
+    .f-links a:hover { color: var(--tc-gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(240,232,222,0.06); padding-top: 22px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; color: rgba(240,232,222,0.28);
+      max-width: 1100px; margin: 0 auto;
+    }
+    .footer-bottom a { color: rgba(240,232,222,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--tc-gold); }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .nav-links { display: none; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+    @media (max-width: 520px) {
+      .tc-legal__id-row { grid-template-columns: 1fr; }
+      .tc-legal__id-label { border-right: none; border-bottom: 1px solid var(--tc-border); }
+      .cta-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Navigation principale">
+  <a class="nav-logo" href="#">Esokami <em>&amp;</em> Co.</a>
+  <ul class="nav-links">
+    <li><a href="#">Étincelle</a></li>
+    <li><a href="#">Flamme</a></li>
+    <li><a href="#">Brasier</a></li>
+    <li><a href="#">À propos</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <a href="#" class="nav-cta">Découvrir</a>
+</nav>
+
+
+<!-- HERO -->
+<section class="tc-legal__hero" aria-label="En-tête">
+  <div class="tc-legal__hero-geo" aria-hidden="true">
+    <svg viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="300" cy="300" r="290" stroke="currentColor" stroke-width="0.5"/>
+      <circle cx="300" cy="300" r="200" stroke="currentColor" stroke-width="0.5"/>
+      <circle cx="300" cy="300" r="110" stroke="currentColor" stroke-width="0.5"/>
+      <polygon points="300,10 590,300 300,590 10,300" stroke="currentColor" stroke-width="0.4" fill="none"/>
+      <polygon points="300,110 490,300 300,490 110,300" stroke="currentColor" stroke-width="0.4" fill="none"/>
+      <line x1="300" y1="10" x2="300" y2="590" stroke="currentColor" stroke-width="0.3"/>
+      <line x1="10" y1="300" x2="590" y2="300" stroke="currentColor" stroke-width="0.3"/>
+    </svg>
+  </div>
+  <div class="tc-legal__hero-content">
+    <p class="tc-legal__eyebrow">Légal &amp; transparence</p>
+    <h1 class="tc-legal__title">Mentions <em>légales</em></h1>
+    <div class="tc-legal__accent" aria-hidden="true"></div>
+    <p class="tc-legal__date">Loi n° 2004-575 du 21 juin 2004</p>
+  </div>
+</section>
+
+
+<!-- 0. INTRO -->
+<section class="tc-section">
+  <div class="tc-container-sm">
+    <div class="tc-sec-header">
+      <p class="tc-section-label left">Cadre juridique</p>
+      <h2>Informations <em>générales</em></h2>
+    </div>
+    <p class="tc-legal__lead">
+      Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l'économie numérique,
+      il est précisé aux utilisateurs du site Esokami l'identité des différents intervenants dans le cadre
+      de sa réalisation et de son suivi.
+    </p>
+  </div>
+</section>
+
+
+<!-- 01. ÉDITION -->
+<section class="tc-section-alt">
+  <div class="tc-container-sm">
+    <span class="tc-legal__num" aria-hidden="true">01</span>
+    <p class="tc-section-label left">Éditeur</p>
+    <h2>Édition du site</h2>
+    <p>Le présent site, accessible à l'adresse <strong>https://www.esokami.fr/</strong>, est édité par :</p>
+    <div class="tc-legal__id-card">
+      <div class="tc-legal__id-row">
+        <span class="tc-legal__id-label">Raison sociale</span>
+        <span class="tc-legal__id-value">Omliance Digital</span>
+      </div>
+      <div class="tc-legal__id-row">
+        <span class="tc-legal__id-label">SIREN</span>
+        <span class="tc-legal__id-value">929 620 920</span>
+      </div>
+      <div class="tc-legal__id-row">
+        <span class="tc-legal__id-label">Siège social</span>
+        <span class="tc-legal__id-value">5 rue de Lyon — 69890 La Tour de Salvagny</span>
+      </div>
+      <div class="tc-legal__id-row">
+        <span class="tc-legal__id-label">Directeur de publication</span>
+        <span class="tc-legal__id-value">Christophe Lopez</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 02. HÉBERGEMENT -->
+<section class="tc-section">
+  <div class="tc-container-sm">
+    <span class="tc-legal__num" aria-hidden="true">02</span>
+    <p class="tc-section-label left">Hébergement</p>
+    <h2>Hébergeur du site</h2>
+    <p>Le site est hébergé par :</p>
+    <div class="tc-legal__id-card">
+      <div class="tc-legal__id-row">
+        <span class="tc-legal__id-label">Hébergeur</span>
+        <span class="tc-legal__id-value">OVH</span>
+      </div>
+      <div class="tc-legal__id-row">
+        <span class="tc-legal__id-label">Siège social</span>
+        <span class="tc-legal__id-value">2 rue Kellermann — 59100 Roubaix — France</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 03. PROPRIÉTÉ INTELLECTUELLE -->
+<section class="tc-section-alt">
+  <div class="tc-container-sm">
+    <span class="tc-legal__num" aria-hidden="true">03</span>
+    <p class="tc-section-label left">Droits d'auteur</p>
+    <h2>Propriété <em>intellectuelle</em></h2>
+    <p>
+      Tous les contenus présents sur ce site (textes, images, vidéos, logos, icônes, graphismes, etc.)
+      sont la propriété exclusive d'Omliance Digital ou de tiers ayant autorisé leur utilisation.
+    </p>
+    <p>
+      Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments
+      du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable
+      d'Omliance Digital.
+    </p>
+    <blockquote>
+      Toute exploitation non autorisée du site ou de l'un quelconque des éléments qu'il contient sera considérée
+      comme constitutive d'une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2
+      et suivants du Code de propriété intellectuelle.
+    </blockquote>
+  </div>
+</section>
+
+
+<!-- 04. LIMITATION DE RESPONSABILITÉ -->
+<section class="tc-section">
+  <div class="tc-container-sm">
+    <span class="tc-legal__num" aria-hidden="true">04</span>
+    <p class="tc-section-label left">Responsabilité</p>
+    <h2>Limitation de <em>responsabilité</em></h2>
+    <p>
+      Omliance Digital ne pourra être tenue responsable des dommages directs et indirects causés au matériel
+      de l'utilisateur, lors de l'accès au site Esokami.
+    </p>
+    <p>
+      Omliance Digital décline toute responsabilité quant à l'utilisation qui pourrait être faite des informations
+      et des contenus présents sur le site Esokami.
+    </p>
+    <p>
+      Des liens hypertextes vers d'autres sites ont été mis en place avec l'autorisation d'Omliance Digital.
+      Cependant, Omliance Digital n'a pas la possibilité de vérifier le contenu des sites ainsi visités,
+      et n'assumera en conséquence aucune responsabilité de ce fait.
+    </p>
+  </div>
+</section>
+
+
+<!-- 05. DROIT APPLICABLE -->
+<section class="tc-section-alt">
+  <div class="tc-container-sm">
+    <span class="tc-legal__num" aria-hidden="true">05</span>
+    <p class="tc-section-label left">Juridiction</p>
+    <h2>Droit applicable</h2>
+    <p>
+      Tout litige en relation avec l'utilisation du site Esokami est soumis au droit français.
+      En dehors des cas où la loi ne le permet pas, il est fait attribution exclusive de juridiction
+      aux tribunaux compétents de <strong>Lyon</strong>.
+    </p>
+  </div>
+</section>
+
+
+<!-- SECTION FINALE -->
+<section class="tc-section-dark tc-legal__final">
+  <div class="tc-legal__final-geo" aria-hidden="true">
+    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="200" r="190" stroke="currentColor" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="140" stroke="currentColor" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="90"  stroke="currentColor" stroke-width="0.5"/>
+      <line x1="200" y1="10"  x2="200" y2="390" stroke="currentColor" stroke-width="0.3"/>
+      <line x1="10"  y1="200" x2="390" y2="200" stroke="currentColor" stroke-width="0.3"/>
+      <line x1="61"  y1="61"  x2="339" y2="339" stroke="currentColor" stroke-width="0.3"/>
+      <line x1="339" y1="61"  x2="61"  y2="339" stroke="currentColor" stroke-width="0.3"/>
+    </svg>
+  </div>
+  <div class="tc-container">
+    <div class="tc-legal__final-inner">
+      <p class="tc-section-label">Données personnelles</p>
+      <h2 class="tc-legal__final-title">Votre <em>vie privée</em><br>nous importe</h2>
+      <p class="tc-legal__final-sub">
+        Nous vous invitons à consulter notre politique de confidentialité pour en savoir plus
+        sur la collecte et le traitement de vos données personnelles.
+      </p>
+      <div class="cta-btns">
+        <a href="#" class="btn-gold">Politique de confidentialité</a>
+        <a href="#" class="btn-outline-light">Nous contacter</a>
+      </div>
+      <p class="tc-legal__cnil-note">
+        <strong>Omliance Digital</strong> — 5 rue de Lyon — 69890 La Tour de Salvagny
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <p class="f-logo">Esokami <em>&amp;</em> Co.</p>
+      <p class="f-tagline">Matérialisez vos intentions. Améliorez votre vie.</p>
+      <p class="f-disclaimer">Mon accompagnement ne remplace en aucun cas un suivi médical. Il vient en complément des traitements conventionnels pour une approche holistique de votre bien-être.</p>
+    </div>
+    <div>
+      <p class="f-col-title">Navigation</p>
+      <ul class="f-links">
+        <li><a href="#">Étincelle</a></li>
+        <li><a href="#">Flamme</a></li>
+        <li><a href="#">Brasier</a></li>
+        <li><a href="#">À propos</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="f-col-title">Légal</p>
+      <ul class="f-links">
+        <li><a href="#" aria-current="page">Mentions légales</a></li>
+        <li><a href="#">CGV</a></li>
+        <li><a href="#">Politique de confidentialité</a></li>
+        <li><a href="#">Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Esokami &amp; Co. &mdash; Artisanat &amp; pratiques énergétiques</span>
+    <a href="#">Mentions légales</a>
+  </div>
+</footer>
+
+</body>
+</html>
